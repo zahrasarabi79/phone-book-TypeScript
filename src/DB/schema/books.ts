@@ -1,5 +1,16 @@
-const { DataTypes } = require("sequelize");
-const book = {
+import { DataTypes } from "sequelize";
+export interface Ibook {
+  name: string;
+  columns: columns;
+  conf:object;
+  
+}
+interface columns{
+  name:object; 
+  phone:object;
+}
+
+const book:Ibook = {
   name: "books",
   columns: {
     name: {
@@ -18,4 +29,4 @@ const book = {
 
 const spre = { book };
 // console.log(spre);
-module.exports = {...book };
+export default{ ...book };
