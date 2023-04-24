@@ -1,13 +1,12 @@
 import { IPerson } from "../CRUD/ADD";
-import table from "./schema/schema.bootstrap"
+import Books from "./schema/books";
 const deletedData = async (data:IPerson) => {
   try {
-    const distroy = await table.tbls.books.destroy({
+    const distroy = await Books.destroy({
       where: {
         name: `${data.name}`,
       },
     });
-    console.log(typeof table.tbls)
 
     if (distroy === 0) {
       console.log("unnnSuccessfully record deleted.");

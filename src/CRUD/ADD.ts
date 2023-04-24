@@ -5,7 +5,7 @@ import DB from "../DB/book.controller";
   phone: string;
 }
 async function dataQuestions(){
-  let data:IPerson = await common.questions(
+  let data = await common.questions(
     "what is your name?",
     "what is your phone?"
   );
@@ -13,3 +13,4 @@ async function dataQuestions(){
 }
 
 export default{dataQuestions};
+  

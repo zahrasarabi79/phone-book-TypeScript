@@ -1,14 +1,23 @@
 {
+  "scripts": {
+    "dev": "node D:/1401/phone-book-TypeScript/public/clean.js"
+  },
   "dependencies": {
     "-": "^0.0.1",
     "g": "^2.0.1",
     "inquirer": "^8.2.5",
     "mysql2": "^3.1.2",
-    "sequelize": "^6.28.0",
-    "sequelize-cli": "^6.6.0"
+    "reflect-metadata": "^0.1.13",
+    "sequelize": "^6.31.0",
+    "sequelize-cli": "^6.6.0",
+    "sequelize-typescript": "^2.1.5"
   },
   "devDependencies": {
     "@types/inquirer": "^9.0.3",
+    "@types/node": "^18.15.11",
+    "@types/validator": "^13.7.15",
+    "nodemon": "^2.0.22",
+    "ts-node": "^10.9.1",
     "typescript": "^5.0.4"
   }
 }

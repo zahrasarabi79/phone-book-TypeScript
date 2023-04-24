@@ -1,5 +1,6 @@
 import inquirer from 'inquirer';
-function questions(massage1:string, massage2:string) {
+import { IPerson } from './ADD';
+function questions(massage1:string, massage2:string):Promise<IPerson> {
   interface Iinquirerquestion{
     name: string;
     type: string;
@@ -17,6 +18,6 @@ function questions(massage1:string, massage2:string) {
       message: massage2,
     },
   ];
-  return inquirer.prompt(inquirerquestion);
+  return inquirer.prompt<IPerson>(inquirerquestion);
 }
 export default{ questions}

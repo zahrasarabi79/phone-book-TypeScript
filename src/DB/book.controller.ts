@@ -1,15 +1,13 @@
 import { IPerson } from "../CRUD/ADD";
-import table from "./schema/schema.bootstrap";
-import server from "./server";
+import Books from "./schema/books";
 
-const insertData = async (data:IPerson) => {
-  const datainput:IPerson= {
-    name: `${data.name}`,
-    phone: `${data.phone}`,
-  };
-  // console.log(datainput.name)
+const insertData = async (datainput:IPerson) => {
   try {
-    await server.database.models.books.create(datainput);
+    await Books.create({
+      name:datainput.name,
+      phone:datainput.phone
+    });
+
     console.log("done");
 
   } catch (error) {

@@ -1,8 +1,9 @@
 import server  from "./server";
 import { IPerson } from "../CRUD/ADD";
+import Books from "./schema/books";
 const updateNumberOf = async (data:IPerson) => {
   try {
-    await server.database.models.books.update(
+    await Books.update(
       {
         phone: `${data.phone}`,
       },

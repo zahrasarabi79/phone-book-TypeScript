@@ -12,15 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const schema_bootstrap_1 = __importDefault(require("./schema/schema.bootstrap"));
+const books_1 = __importDefault(require("./schema/books"));
 const deletedData = (data) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        const distroy = yield schema_bootstrap_1.default.tbls.books.destroy({
+        const distroy = yield books_1.default.destroy({
             where: {
                 name: `${data.name}`,
             },
         });
-        console.log(typeof schema_bootstrap_1.default.tbls);
         if (distroy === 0) {
             console.log("unnnSuccessfully record deleted.");
         }

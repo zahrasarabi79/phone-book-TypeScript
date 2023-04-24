@@ -12,17 +12,14 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const server_1 = __importDefault(require("./server"));
-const insertData = (data) => __awaiter(void 0, void 0, void 0, function* () {
-    const datainput = {
-        name: `${data.name}`,
-        phone: `${data.phone}`,
-    };
-    // console.log(datainput.name)
+const books_1 = __importDefault(require("./schema/books"));
+const insertData = (datainput) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield server_1.default.database.models.books.create(datainput);
+        yield books_1.default.create({
+            name: datainput.name,
+            phone: datainput.phone
+        });
         console.log("done");
-        console.log(typeof datainput.phone);
     }
     catch (error) {
         console.log(error);

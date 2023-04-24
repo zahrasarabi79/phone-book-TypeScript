@@ -8,26 +8,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
         step((generator = generator.apply(thisArg, _arguments || [])).next());
     });
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", { value: true });
-const sequelize_1 = require("sequelize");
-const schema_bootstrap_1 = __importDefault(require("./schema/schema.bootstrap"));
+const sequelize_typescript_1 = require("sequelize-typescript");
 const database = creatDbInstance();
-/*best practice*/
 function creatDbInstance() {
-    return new sequelize_1.Sequelize("pgs", "root", "102030", {
-        host: "localhost",
-        dialect: "mysql",
-        logging: false, //اینجا خط های کوئری داخل ترمینال کنسول لاگ گرفته نمیشه
+    return new sequelize_typescript_1.Sequelize({
+        database: 'pgs',
+        dialect: 'mysql',
+        username: 'root',
+        password: '102030',
+        models: [__dirname + '/schema'],
+        logging: false,
     });
 }
 const creatTable = () => __awaiter(void 0, void 0, void 0, function* () {
     try {
         yield database.authenticate(); //
-        schema_bootstrap_1.default.makeTablesFromSchemas(database);
-        //call schema to build table automaticly
         yield database.sync();
     }
     catch (error) {

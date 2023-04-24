@@ -12,10 +12,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-const server_1 = __importDefault(require("./server"));
+const books_1 = __importDefault(require("./schema/books"));
 const updateNameOf = (data) => __awaiter(void 0, void 0, void 0, function* () {
     try {
-        yield server_1.default.database.models.books.update({
+        yield books_1.default.update({
             name: `${data.name}`,
         }, {
             where: { phone: `${data.phone}` },

@@ -1,32 +1,17 @@
-import { DataTypes } from "sequelize";
-export interface Ibook {
-  name: string;
-  columns: columns;
-  conf:object;
-  
+import { Table, Column, Model } from "sequelize-typescript";
+
+export interface IBook{
+  name:string,
+  phone:string
 }
-interface columns{
-  name:object; 
-  phone:object;
+//@table : در این جا دکورتور فانکشن که پرانتزش توی تی اس کانفیگ برداشته شده 
+@Table({
+  timestamps:false
+})
+export default class Books extends Model<IBook> {
+  @Column
+  name!: string;//علامت سوال به معنی پر کردن اجباری این ستون است 
+
+  @Column
+  phone!: Date;
 }
-
-const book:Ibook = {
-  name: "books",
-  columns: {
-    name: {
-      type: DataTypes.STRING,
-      unique: true,
-    },
-    phone: {
-      type: DataTypes.STRING,
-    },
-  },
-  conf: {
-    timestamps: false,
-  },
-};
-
-
-const spre = { book };
-// console.log(spre);
-export default{ ...book };

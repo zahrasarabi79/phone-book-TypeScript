@@ -1,8 +1,8 @@
-import server  from "./server";
 import { IPerson } from "../CRUD/ADD";
+import Books from "./schema/books";
 const updateNameOf = async (data:IPerson) => {
   try {
-    await server.database.models.books.update(
+    await Books.update(
       {
         name: `${data.name}`,
       },
